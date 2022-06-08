@@ -15,3 +15,9 @@ Yay, we finally got someone to Mars! It's bureaucracy time!
 - How proprietary is this "proprietary algorithm", anyway?
 
 ## Write up
+
+In this challenge I did not solve it because I am not fluent in the programming language `Rust`. I provided a write up from another organization:
+
+[Original writeup - Alleviation](https://alleviation.xyz/2022/06/07/bcactf-3-0-2022/4/).
+
+Flag: `bcactf{m@yb3_d0nt_u53_md5_f0r_int3rg@lact1c_c0l0n1z@t10n}`

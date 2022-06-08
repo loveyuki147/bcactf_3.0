@@ -14,3 +14,4 @@ This is my best friend Gerbert. He insists that he's a human like me, but I thin
 
 ## Write up
 
+Flag: `bcactf{g3rb3rt_w4s_4_bu11fr0g_2139}`

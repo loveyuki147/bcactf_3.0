@@ -16,4 +16,4 @@ Decode the encoded flag, which used a secret key.
 - How can you use the given encoded messages to decode messages?
 - How much data is actually lost in this encoding?
 
-##
+## Write up

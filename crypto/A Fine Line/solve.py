@@ -1,45 +1,31 @@
-from Crypto.Util.number import *
+from Crypto.Util.number import inverse
 import string
-LETTERS = string.ascii_lowercase + string.digits + "_"
-LETTERS = '0123456789bcdefghijklmnopqrstuvwxyz_'
+LETTERS = string.digits + string.ascii_lowercase + "_"
 
-
-# Return Affine Cipher with MODE encrypt or decrypt
+# (cipher - key_1) * key_0^-1 % len(LETTERS)
 def dcode_affine_cipher(message, key):
-    message = message.lower()
-    translated = ''
-    
-    l = len(LETTERS)
-    modInverseOfKeyA = inverse(key[0], l)
-    
+    translated = '' 
+    modInverseOfKeyA = inverse(key[0], len(LETTERS))
     for symbol in message:
         symIndex = LETTERS.find(symbol)
-        if symIndex == -1:
-            translated += symbol
-        else:
-            translated += LETTERS[(symIndex - key[1]) * modInverseOfKeyA % l]
+        translated += LETTERS[(symIndex - key[1]) * modInverseOfKeyA % len(LETTERS)]
 
     return translated
 
+pair_letters_curr = 'bc'
 cipher = 'bx6ez_unufi3bm0r0xeb'
 
-def split_strings(s, n):
-    split_strings = []
-    for index in range(0, len(s), n):
-        split_strings.append(s[index : index + n])
-    return split_strings
-
-for i in range(len(LETTERS)):
-    for j in range(len(LETTERS)):
-        key = (i, j)
-        
-        message = dcode_affine_cipher(cipher, key)
+flag = pair_letters_curr
+for i in range(0, len(cipher), 2):
+    pair_letters_cipher = cipher[i : i + 2]
    
-        #print(message)
-        if 'ctf' in message:
-            print(key, message)
-        m_a = split_strings(message, 2)
-           
+    a = LETTERS.index(pair_letters_curr[0])
+    b = LETTERS.index(pair_letters_curr[1])
+    pair_letters_curr = dcode_affine_cipher(pair_letters_cipher, (a, b))
+    flag += pair_letters_curr
+
+flag = flag[:6] + '{' + flag[6:]+ "}"
+print(flag)
         
 
         
