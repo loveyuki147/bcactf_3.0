@@ -23,22 +23,23 @@ Decode each character and combine them to produce plaintext.
 
 ``` python3
 from Crypto.Util.number import inverse
+import string
+ALPHA = string.digits + string.ascii_lowercase + "_"
 
 def dcode_affine_cipher(message, key):
     translated = '' 
-    modInverseOfKeyA = inverse(key[0], len(LETTERS))
+    modInverseOfKeyA = inverse(key[0], len(ALPHA))
     for symbol in message:
-        symIndex = LETTERS.find(symbol)
-        translated += LETTERS[(symIndex - key[1]) * modInverseOfKeyA % len(LETTERS)]
+        symIndex = ALPHA.find(symbol)
+        translated += ALPHA[(symIndex - key[1]) * modInverseOfKeyA % len(ALPHA)]
 
     return translated
 ```
 
-2. Now we have a ceramic alphabet with digits, lowercase and underscore (This is episode $Z_{n}$ with $n = 37$). From the hint we can guess that we will use the previously decoded character pair to solve the following pair of characters. For example, the first two letters `bc` will be used as key pairs. With $a = 1$ and $b = 2$ (index of `bc` characters in the alphabet). Then use the newly earned key pair to decode the next letter pair (hint).
+1. Now we have a ceramic alphabet with digits, lowercase and underscore (This is episode $Z_{n}$ with $n = 37$). From the hint we can guess that we will use the previously decoded character pair to solve the following pair of characters. For example, `bc` will be used as key pairs. With $a = 1$ and $b = 2$ (index of `bc` characters in the alphabet). Then use the newly earned key pair to decode the next letter pair (hint) => D(`bx`) = `ac`. Do the same goes for the rest of the cipher.
 
 ```
-import string
-LETTERS = string.digits + string.ascii_lowercase + "_"
+
 
 pair_letters_curr = 'bc'
 cipher = 'bx6ez_unufi3bm0r0xeb'
@@ -46,8 +47,8 @@ flag = pair_letters_curr
 for i in range(0, len(cipher), 2):
     pair_letters_cipher = cipher[i : i + 2]
    
-    a = LETTERS.index(pair_letters_curr[0])
-    b = LETTERS.index(pair_letters_curr[1])
+    a = ALPHA.index(pair_letters_curr[0])
+    b = ALPHA.index(pair_letters_curr[1])
     pair_letters_curr = dcode_affine_cipher(pair_letters_cipher, (a, b))
     flag += pair_letters_curr
 
