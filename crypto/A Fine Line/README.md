@@ -39,8 +39,6 @@ def dcode_affine_cipher(message, key):
 1. Now we have a ceramic alphabet with digits, lowercase and underscore (This is episode $Z_{n}$ with $n = 37$). From the hint we can guess that we will use the previously decoded character pair to solve the following pair of characters. For example, `bc` will be used as key pairs. With $a = 1$ and $b = 2$ (index of `bc` characters in the alphabet). Then use the newly earned key pair to decode the next letter pair (hint) => D(`bx`) = `ac`. Do the same goes for the rest of the cipher.
 
 ```
-
-
 pair_letters_curr = 'bc'
 cipher = 'bx6ez_unufi3bm0r0xeb'
 flag = pair_letters_curr
