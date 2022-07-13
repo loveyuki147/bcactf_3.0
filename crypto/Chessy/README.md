@@ -43,8 +43,7 @@ With: `2qp2kN/1qbpR1PN/1Bq2KQ1/1knR1r2/1Nq3Rb/1bn4n/1qr3nR/1BR3P1` that will giv
 ![](chess.png)
 
 
-
-1. For each empty checker box it will be 0 and vice versa 1. Starting from row 1 to row 8. Sequentially with each `chessy` is different. Then put it back together.
+3. For each empty checker box it will be 0 and vice versa 1. Starting from row 1 to row 8. Sequentially with each `chessy` is different. Then put it back together.
 
 ``` python3
 m = ''
