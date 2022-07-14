@@ -13,7 +13,7 @@ I'm carefully drawing a fine line on this piece of paper, letting each portion g
 
 ## Write up
 
-1. Learn about Affine cryptography first. The input is a character $c$ and the key pair $a$ and $b$. With $a, b, c \in Z_{n}$. The encryption and decryption formula can be seen below:
+1. Learn about Affine cipher. The input is a character $c$ and the key pair $a$ and $b$. With $a, b, c \in Z_{n}$. The encryption and decryption formula can be seen below:
 
 $E(c) = x = (ac + b) \mod n$
 
